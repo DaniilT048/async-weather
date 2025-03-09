@@ -1,4 +1,13 @@
+*{
+    box-sizing: border-box;
+}
 .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,4 +18,14 @@
 
 .hidden{
     display: none;
+}
+
+.valid{
+    color: green;
+    border-color: green;
+}
+
+.invalid{
+    color: red;
+    border-color: red;
 }
