@@ -1,9 +1,11 @@
-const inputCity = document.querySelector('#cityChoice');
+
+const inputCity = document.querySelector('#inputCity');
 const buttonCity = document.querySelector('#buttonCity');
 const resButton = document.querySelector('#resButton');
 
 inputCity.addEventListener('input', onInputCityChange)
 buttonCity.addEventListener('click', buttonDisable)
+buttonCity.addEventListener('click', getWeather)
 resButton.addEventListener('click', buttonRestart)
 
 
@@ -14,9 +16,6 @@ function isCityValid(inputCityValue) {
 function buttonDisable (){
     if(inputCity.value === ''){
         return alert('Please enter a valid city name');
-    }else{
-        getWeather();
-        console.log(inputCity.value);
     }
 }
 
@@ -42,6 +41,7 @@ const weatherLink = `http://api.openweathermap.org/data/2.5/weather?q=${inputCit
 // const pic = `http://openweathermap.org/img/w/${main.icon}.png`;
 
 async function getWeather(){
+
     document.getElementById('processing').classList.remove('hidden');
     document.getElementById('choiceCityBlock').classList.add('hidden');
     document.getElementById('resButton').classList.remove('hidden');
@@ -52,7 +52,10 @@ async function getWeather(){
             }
             return res.json();
         });
+        document.getElementById('resButton').classList.remove('hidden');
+        document.getElementById('weatherBlock').classList.remove('hidden');
         document.getElementById('weatherBlock').innerHTML = data.main.temp;
+
         // document.getElementById('weatherPic').src = pic;
     }catch(error){
         console.log(error);
@@ -60,4 +63,3 @@ async function getWeather(){
         document.getElementById('processing').classList.add('hidden');
     }
 }
-getWeather()
