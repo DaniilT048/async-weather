@@ -7,14 +7,17 @@
 </head>
 <body class="container">
 <div class="content">
-    <form id="form">
+    <form id="choiceCityBlock">
     <input id="cityChoice" type="text" name="city" placeholder="Enter city name">
         <input id="buttonCity" type="submit" value="Choice city">
     </form>
-    <div id="weather">
-        <img src="" alt="">
+    <div id="weatherBlock">
+        <div id="processing" class="hidden">
+            find city
+        </div>
+        <img id="weatherPic" src="" alt="">
     </div>
-    <button id="resButton"> Rest</button>
+    <button id="resButton" class="hidden"> Rest</button>
 </div>
 <script type="module" src="main.js"></script>
 </body>
