@@ -14,6 +14,7 @@
     width: 500px;
     height: 500px;
     border: 5px solid black;
+    background-color: deepskyblue;
 }
 
 .hidden{
@@ -29,6 +30,13 @@
     color: red;
     border: solid 5px red;
 }
+
 .block{
+    font-size: 20px;
     display: block;
+}
+
+#weatherPic{
+    height: 150px;
+    width: 150px;
 }

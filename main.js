@@ -2,6 +2,9 @@
 const inputCity = document.querySelector('#inputCity');
 const buttonCity = document.querySelector('#buttonCity');
 const resButton = document.querySelector('#resButton');
+const weatherBlock = document.querySelector('#weatherBlock');
+const weatherPic = document.querySelector('#weatherPic');
+
 
 inputCity.addEventListener('input', onInputCityChange)
 buttonCity.addEventListener('click', getWeather)
@@ -15,8 +18,8 @@ function isCityValid(inputCityValue) {
 
 function buttonRestart (){
     document.getElementById('choiceCityBlock').classList.remove('hidden');
-    document.getElementById('weatherBlock').classList.add('hidden');
-    document.getElementById('weatherPic').classList.add('hidden');
+    weatherBlock.classList.add('hidden');
+    weatherPic.classList.add('hidden');
     resButton.classList.add('hidden');
 }
 
@@ -45,23 +48,21 @@ async function getWeather(event){
     try{
         const data = await fetch(weatherLink).then(res => {
             if(!res.ok){
-                document.getElementById('weatherBlock').innerHTML = 'city is not found. Please click for rest button and enter correctly city name and try again.'
+                weatherBlock.innerHTML = 'city is not found. Please click for rest button and enter correctly city name and try again.'
                 return;
             }
             return res.json();
         });
-
-        document.getElementById('resButton').classList.remove('hidden');
-        document.getElementById('weatherBlock').classList.remove('hidden');
-        document.getElementById('weatherBlock').innerHTML =
+        weatherBlock.classList.remove('hidden');
+        weatherBlock.innerHTML =
             `<p class="block">Temperature:${data.main.temp}</p>
             <p class="block">Pressure:${data.main.pressure}</p>
             <p class="block">Description:${data.weather.description}</p>
             <p class="block">Humidity:${data.main.humidity}</p>
             <p class="block">Wind speed:${data.wind.speed}</p>
             <p class="block">Deg:${data.wind.deg}</p>`;
-        document.getElementById('weatherPic').classList.remove('hidden');
-       document.getElementById('weatherPic').src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+        weatherPic.classList.remove('hidden');
+        weatherPic.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
     }catch(error){
         console.log(error);
     }finally{
