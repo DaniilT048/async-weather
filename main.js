@@ -48,7 +48,7 @@ async function getWeather(event){
     try{
         const data = await fetch(weatherLink).then(res => {
             if(!res.ok){
-                weatherBlock.innerHTML = 'city is not found. Please click for rest button and enter correctly city name and try again.'
+                weatherBlock.innerHTML = '<p class="block">City is not found. Please click for rest button and enter correctly city name and try again.</p>'
                 return;
             }
             return res.json();
