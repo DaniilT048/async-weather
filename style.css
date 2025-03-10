@@ -22,10 +22,13 @@
 
 .valid{
     color: green;
-    border-color: green;
+    border: solid 5px green;
 }
 
 .invalid{
     color: red;
-    border-color: red;
+    border: solid 5px red;
+}
+.block{
+    display: block;
 }

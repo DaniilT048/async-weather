@@ -9,16 +9,16 @@
 <div class="content">
     <form id="choiceCityBlock">
     <input id="inputCity" type="text" name="city" placeholder="Enter city name">
-        <input id="buttonCity" type="submit" value="Choice city">
+     <input id="buttonCity" type="submit" value="Choice city">
     </form>
-    <div id="weatherBlock">
-        <div id="processing" class="hidden">
-            find city
-        </div>
-        <img id="weatherPic" src="" alt="">
+    <div id="weatherBlock" class="hidden">
     </div>
-    <button id="resButton" class="hidden"> Rest</button>
+    <img  class="hidden" id="weatherPic" src="" alt="">
+    <div id="processing" class="hidden">
+        find city
+    </div>
+    <input id="resButton" class="hidden" type="submit" value="Rest">
 </div>
-<script type="module" src="main.js"></script>
+<script type="module" src="main.js" defer></script>
 </body>
 </html>
