@@ -12,7 +12,7 @@ resButton.addEventListener('click', buttonRestart)
 
 
 function isCityValid(inputCityValue) {
-    return /^[A-Z]+$/.test(inputCityValue);
+    return /^[A-Z-a-z-А-Я-а-я]+(?:\s[A-Z-a-z-А-Я-а-я]+)*$/.test(inputCityValue);
 }
 
 
@@ -57,7 +57,7 @@ async function getWeather(event){
         weatherBlock.innerHTML =
             `<p class="block">Temperature:${data.main.temp}</p>
             <p class="block">Pressure:${data.main.pressure}</p>
-            <p class="block">Description:${data.weather.description}</p>
+            <p class="block">Description:${data.weather[0].description}</p>
             <p class="block">Humidity:${data.main.humidity}</p>
             <p class="block">Wind speed:${data.wind.speed}</p>
             <p class="block">Deg:${data.wind.deg}</p>`;
